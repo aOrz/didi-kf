@@ -25,6 +25,7 @@
     "kf": "bin/kf.js"
   },
   "dependencies": {
+    "colors": "^1.1.2",
     "xtemplate": "^4.6.0",
     "xtpl": "^3.3.0"
   }

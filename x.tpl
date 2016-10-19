@@ -1,1 +1,1 @@
-{{title}}
+var a = {{title}}
