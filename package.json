@@ -1,0 +1,24 @@
+{
+  "name": "didi-kf",
+  "version": "1.0.0",
+  "description": "cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4013465w/didi-kf.git"
+  },
+  "keywords": [
+    "didi",
+    "kf",
+    "cli"
+  ],
+  "author": "autumn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4013465w/didi-kf/issues"
+  },
+  "homepage": "https://github.com/4013465w/didi-kf#readme"
+}
