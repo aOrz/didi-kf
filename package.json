@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/4013465w/didi-kf/issues"
   },
-  "homepage": "https://github.com/4013465w/didi-kf#readme"
+  "homepage": "https://github.com/4013465w/didi-kf#readme",
+  "bin": {
+    "kf": "bin/kf.js"
+  },
+  "dependencies": {
+    "xtemplate": "^4.6.0",
+    "xtpl": "^3.3.0"
+  }
 }
