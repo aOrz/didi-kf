@@ -27,6 +27,7 @@
   "dependencies": {
     "colors": "^1.1.2",
     "xtemplate": "^4.6.0",
-    "xtpl": "^3.3.0"
+    "xtpl": "^3.3.0",
+    "yargs": "^6.2.0"
   }
 }
