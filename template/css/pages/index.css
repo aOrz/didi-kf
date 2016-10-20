@@ -1,3 +1,4 @@
 @import "../module/kf-p-reset.css";
 @import "../module/didi.new.css";
 @import "../module/kf-common.css";
+@import "../module/{{name}}.css";
