@@ -32,7 +32,6 @@ var yas = require('yargs')
        .help('h')
        .alias('h', 'help')
        .argv;
-       console.log(argv.u)
       if (!argv._[1]) {
         log.error('请输入文件名哦！');
       }

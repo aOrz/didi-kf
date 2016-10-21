@@ -20,8 +20,15 @@ module.exports = {
    */
   init:function (name,kind,force,data) {
     var self = this;
-    self.humpName = name;
-    self.name = name.replace(/([A-Z])/g,'-$1').toLowerCase();
+    if(name.indexOf('-') > -1){
+      self.humpName = name.replace(/-(\w)/g,function (a,b) {
+        return b.toUpperCase();
+      })
+      self.name = name;
+    } else  {
+      self.humpName = name;
+      self.name = name.replace(/([A-Z])/g,'-$1').toLowerCase();
+    }
     // console.log(self.name)
     // process.exit(0);
     if (kind == null || kind == undefined) {
