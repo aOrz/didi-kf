@@ -1,5 +1,6 @@
 # didi-kf
 > 滴滴在线客服-前端命令行工具
+
 ## 介绍
 
 滴滴在线客服前端命令行工具，解决的问题：我们在新建页面时需要创建html文件、复制粘贴基础代码、创建js文件、创建 css pages 文件、创建 css 文件、在 pages 里面引用 css、在 html 中引用 css，js 文件
@@ -11,7 +12,9 @@
 
 根据目前的命名规则，html 文件为驼峰式命名，css，js文件为下划线的命名方式，所以我们需要 **kf init 后面的参数为驼峰式命名**
 
-window 平台请使用 `git bash` 等来代替`cmd`
+window 平台**请使用** `git bash` 等来代替`cmd`
+
+**命令执行目录为** `kf-optimus/src/main/webapp/static`
 
 ## 帮助文档
 
