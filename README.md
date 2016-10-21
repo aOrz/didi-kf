@@ -16,10 +16,14 @@ window 平台**请使用** `git bash` 等来代替`cmd`
 
 **命令执行目录为** `kf-optimus/src/main/webapp/static`
 
+## 安装
+
+`npm install -g didi-kf`
+
 ## 帮助文档
 
 ```
- λ kf -h
+ $ kf -h
 Usage: kf [options]
 
 命令：
