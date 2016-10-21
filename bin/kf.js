@@ -6,7 +6,18 @@ var kf = require('../src/index.js');
 var log = require('../src/log.js');
 
 var yas = require('yargs')
-    .command('init', '文件创建中....', function (yargs) {
+    .usage('Usage: kf [options]')
+    .example('kf init pageName -t 客服中心','创建文件')
+    .option('title', {
+      alias : 't',
+      demand: false,
+      default: '客服中心',
+      describe: 'html 文件标题',
+      type: 'string'
+    })
+    .help('h')
+    .alias('h', 'help')
+    .command('init', '初始化工作文件', function (yargs) {
        var argv = yargs
        .reset()
        .default({t: '客服中心'})
