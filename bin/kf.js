@@ -17,12 +17,22 @@ var yas = require('yargs')
     })
     .help('h')
     .alias('h', 'help')
-    .command('init', '初始化工作文件', function (yargs) {
+    .command('init', '初始化工作文件',function (yargs) {
        var argv = yargs
        .reset()
-       .default({t: '客服中心'})
-       .alias('t', 'title')
+       .usage('Usage: kf init [options]')
+       .example('kf init pageName -t 客服中心','创建文件')
+       .option('t', {
+          alias : 'title',
+          demand: false,
+          default: '客服中心',
+          describe: 'html 文件标题',
+          type: 'string'
+        })
+       .help('h')
+       .alias('h', 'help')
        .argv;
+       console.log(argv.u)
       if (!argv._[1]) {
         log.error('请输入文件名哦！');
       }
