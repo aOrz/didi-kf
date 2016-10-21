@@ -46,10 +46,13 @@ module.exports = {
         }
       }
       if (self.arr.indexOf('css') > -1) {
-        var pages = glob.sync(pagesPath + '/' + self.name + '.css');
+        var pages = glob.sync(pagesPath + '/' + self.name + '-pages.css');
         var module = glob.sync(modulePath + '/' + self.name + '.css');
-        if (files.length > 0) {
-          log.error('css 文件已存在，起个其他的名字吧！');
+        if (pages.length > 0) {
+          log.error('css pages 文件已存在，起个其他的名字吧！');
+        }
+        if (module.length > 0) {
+          log.error('css module 文件已存在，起个其他的名字吧！');
         }
       }
 
@@ -71,7 +74,7 @@ module.exports = {
         },function(error,content){
           fs.writeFile(curPath + '/' + self.humpName + '.html', content, function (error) {
             if (!error) {
-              log.info(curPath + '/' + self.humpName + '.html 创建完成。');
+              log.info(self.humpName + '.html 创建完成。');
             }else {
               log.error(error);
             }
@@ -88,7 +91,7 @@ module.exports = {
         },function(error,content){
           fs.writeFile(pagesPath + '/' + self.name + '-pages.css' , content, function (error) {
             if (!error) {
-              log.info(pagesPath + '/' + self.name + '-pages.css 创建完成');
+              log.info(self.name + '-pages.css 创建完成');
             }else {
               log.error(error);
             }
@@ -103,6 +106,7 @@ module.exports = {
         var writable = fs.createWriteStream(modulePath + '/' + self.name + '.css');   
         // 通过管道来传输流
         readable.pipe(writable);
+        log.info(self.name + '.css 创建完成。');
       }
 
       if (self.arr.indexOf('js') > -1) {
@@ -111,6 +115,7 @@ module.exports = {
         writable = fs.createWriteStream(jsPath + '/' + self.name + '.js');   
         // 通过管道来传输流
         readable.pipe(writable);
+        log.info(self.name + '.js 创建完成。');
       }
     }
   }
