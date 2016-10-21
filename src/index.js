@@ -18,21 +18,21 @@ module.exports = {
    * @param    {[type]}                 arr  文件集合
    * @return   {[type]}                      [description]
    */
-  init:function (name,kind,force,data) {
+  init: function(name, kind, force, data) {
     var self = this;
     self.humpName = name;
-    self.name = name.replace(/([A-Z])/g,'-$1').toLowerCase();
+    self.name = name.replace(/([A-Z])/g, '-$1').toLowerCase();
     // console.log(self.name)
-    // process.exit(0);
+    process.exit(0);
     if (kind == null || kind == undefined) {
-      kind = ['html','css','js'];
+      kind = ['html', 'css', 'js'];
     }
     self.data = data;
     self.data.name = self.name;
     self.arr = kind;
     self.force = force;
   },
-  checkFiles:function () {
+  checkFiles: function() {
     var self = this;
     var fsExists = fs.existsSync(pagesPath) + fs.existsSync(modulePath) + fs.existsSync(jsPath);
     if (fsExists != 3) {
@@ -57,25 +57,25 @@ module.exports = {
       }
 
       if (self.arr.indexOf('js') > -1) {
-        var files = glob.sync(jsPath + '/' + self.name + '.js');
+            files = glob.sync(jsPath + '/' + self.name + '.js');
         if (files.length > 0) {
           log.error('js 文件已存在，起个其他的名字吧！');
         }
       }
     }
   },
-  copyFile:function () {
+  copyFile: function() {
     var self = this;
     if (self.arr instanceof Array && !self.force) {
       if (self.arr.indexOf('html') > -1) {
-        xtpl.renderFile(path.resolve(__dirname, '..', 'template/index.html'),{
+        xtpl.renderFile(path.resolve(__dirname, '..', 'template/index.html'), {
           title: self.data.title,
           name: self.data.name
-        },function(error,content){
-          fs.writeFile(curPath + '/' + self.humpName + '.html', content, function (error) {
+        }, function(error, content) {
+          fs.writeFile(curPath + '/' + self.humpName + '.html', content, function(error) {
             if (!error) {
               log.info(self.humpName + '.html 创建完成。');
-            }else {
+            } else {
               log.error(error);
             }
           })
@@ -85,14 +85,14 @@ module.exports = {
         });
       }
       if (self.arr.indexOf('css') > -1) {
-        xtpl.renderFile(path.resolve(__dirname, '..', 'template/css/pages/index.css'),{
+        xtpl.renderFile(path.resolve(__dirname, '..', 'template/css/pages/index.css'), {
           title: self.data.title,
           name: self.data.name
-        },function(error,content){
-          fs.writeFile(pagesPath + '/' + self.name + '-pages.css' , content, function (error) {
+        }, function(error, content) {
+          fs.writeFile(pagesPath + '/' + self.name + '-pages.css', content, function(error) {
             if (!error) {
               log.info(self.name + '-pages.css 创建完成');
-            }else {
+            } else {
               log.error(error);
             }
           });
@@ -103,16 +103,16 @@ module.exports = {
 
         var readable = fs.createReadStream(path.resolve(__dirname, '..', 'template/css/module/index.css'));
         // 创建写入流
-        var writable = fs.createWriteStream(modulePath + '/' + self.name + '.css');   
+        var writable = fs.createWriteStream(modulePath + '/' + self.name + '.css');
         // 通过管道来传输流
         readable.pipe(writable);
         log.info(self.name + '.css 创建完成。');
       }
 
       if (self.arr.indexOf('js') > -1) {
-        readable = fs.createReadStream(path.resolve(__dirname , '..', 'template/js/index.js'));
+        readable = fs.createReadStream(path.resolve(__dirname, '..', 'template/js/index.js'));
         // 创建写入流
-        writable = fs.createWriteStream(jsPath + '/' + self.name + '.js');   
+        writable = fs.createWriteStream(jsPath + '/' + self.name + '.js');
         // 通过管道来传输流
         readable.pipe(writable);
         log.info(self.name + '.js 创建完成。');
