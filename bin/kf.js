@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 var path = require('path');
 var curPath = process.cwd();
 var colors = require('colors');
