@@ -18,7 +18,7 @@ module.exports = {
    * @param    {[type]}                 arr  文件集合
    * @return   {[type]}                      [description]
    */
-  init: function(name, kind, force, data) {
+  init: function(name, kind, force, data, pre) {
     var self = this;
     if(name.indexOf('-') > -1){
       name = name.replace(/-(\w)/g,function (a,b) {
@@ -26,7 +26,7 @@ module.exports = {
       })
     }
     self.humpName = name;
-    self.name = name.replace(/([A-Z])/g, '-$1').toLowerCase();
+    self.name = pre + '-' + name.replace(/([A-Z])/g, '-$1').toLowerCase();
     // console.log(self.name)
     if (kind == null || kind == undefined) {
       kind = ['html', 'css', 'js'];

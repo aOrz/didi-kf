@@ -30,6 +30,13 @@ var yas = require('yargs')
           describe: 'html 文件标题',
           type: 'string'
         })
+        .option('p', {
+          alias : 'prefix',
+          demand: false,
+          default: '',
+          describe: '文件前缀',
+          type: 'string'
+        })
        .help('h')
        .alias('h', 'help')
        .argv;
@@ -38,8 +45,8 @@ var yas = require('yargs')
       }
       kf.init(argv._[1], null, false, {
         title:argv.title
-      });
+      },argv.p);
       kf.checkFiles();
-      kf.copyFile()
+      kf.copyFile();
     })
     .argv;
