@@ -16,7 +16,7 @@ colors.setTheme({
 var log = {
 error:function (info) {
   console.log(colors.red(info));
-  process.exit(0);
+  process.exit(1);
 },
 info:function (info) {
   console.log(colors.info(info));
